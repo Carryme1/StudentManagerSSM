@@ -26,7 +26,7 @@
 <body>
 
 <div class="listDIV">
-    <table class="table table-striped table-bordered table-hover table-condensed">
+    <table class="table table-striped table-bordered table-hover table-condensed" align="center" border="1">
 
         <caption>学生列表 - 共${page.total}人</caption>
         <thead>
@@ -36,9 +36,7 @@
             <th>年龄</th>
             <th>性别</th>
             <th>出生日期</th>
-
-            <th>编辑</th>
-            <th>删除</th>
+            <th colspan="2">操作</th>
         </tr>
         </thead>
 
@@ -51,8 +49,8 @@
                 <td>${s.sex}</td>
                 <td>${s.birthday}</td>
 
-                <td><a href="/editStudent?id=${s.id}"><span class="glyphicon glyphicon-edit"></span> </a></td>
-                <td><a href="/deleteStudent?id=${s.id}"><span class="glyphicon glyphicon-trash"></span> </a></td>
+                <td><a href="editStudent?id=${s.id}">编辑</a></td>
+                <td><a href="deleteStudent?id=${s.id}">删除</a></td>
             </tr>
         </c:forEach>
 
@@ -78,8 +76,7 @@
 
             <c:if test="${status.count*page.count-page.start<=30 && status.count*page.count-page.start>=-10}">
                 <li <c:if test="${status.index*page.count==page.start}">class="disabled"</c:if>>
-                    <a
-                            href="?page.start=${status.index*page.count}"
+                    <a href="?page.start=${status.index*page.count}"
                             <c:if test="${status.index*page.count==page.start}">class="current"</c:if>
                     >${status.count}</a>
                 </li>

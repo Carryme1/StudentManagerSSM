@@ -62,7 +62,7 @@ public class StudentController {
         return "redirect:listStudent";
     }
 
-    @RequestMapping("listStudent")
+    @RequestMapping("/listStudent")
     public String listStudent(HttpServletRequest request, HttpServletResponse response) {
 
         // 获取分页参数
