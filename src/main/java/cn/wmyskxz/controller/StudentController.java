@@ -22,7 +22,7 @@ import java.util.List;
  * @create: 2018-04-23-下午 13:27
  */
 @Controller
-@RequestMapping("/listStudent")
+@RequestMapping("")
 public class StudentController {
 
     @Autowired
