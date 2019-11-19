@@ -22,7 +22,7 @@ import java.util.List;
  * @create: 2018-04-23-下午 13:27
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/listStudent")
 public class StudentController {
 
     @Autowired
@@ -67,7 +67,7 @@ public class StudentController {
 
         // 获取分页参数
         int start = 0;
-        int count = 10;
+        int count = 3;
 
         try {
             start = Integer.parseInt(request.getParameter("page.start"));
@@ -78,6 +78,7 @@ public class StudentController {
         Page page = new Page(start, count);
 
         List<Student> students = studentService.list(page.getStart(), page.getCount());
+        //总共的页码
         int total = studentService.getTotal();
         page.setTotal(total);
 
