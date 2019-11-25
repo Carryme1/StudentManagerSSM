@@ -1,6 +1,7 @@
 package cn.wmyskxz.controller;
 
 import cn.wmyskxz.entity.Student;
+import cn.wmyskxz.entity.Teacher;
 import cn.wmyskxz.service.StudentService;
 import cn.wmyskxz.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,11 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
     @RequestMapping("/index")
     public  String index(){
         return "index";
     }
+
 
     @RequestMapping("/addStudent")
     public String addStudent(HttpServletRequest request, HttpServletResponse response) {
