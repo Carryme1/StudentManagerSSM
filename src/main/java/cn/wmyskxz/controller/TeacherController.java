@@ -19,7 +19,7 @@ public class TeacherController {
     @RequestMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response){
         String name = request.getParameter("name");
-        if (name.equals(teacherService.getPasswordByName(name)))
+        if (name.equals(teacherService.getTeacher(name)))
             return "redirect:listStudent";
         else {
             try {

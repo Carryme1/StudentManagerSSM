@@ -2,12 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.wmyskxz.dao.TeacherDao">
-    <select id="getPasswordByName" resultType="String" parameterType="String">
-        SELECT password
-        WHERE name=#{name}
+    <select id="getTeacher" parameterType="String">
+        SELECT * WHERE name = #{name}
     </select>
 
-    <insert id=" insertTeacher" parameterType="Teacher">
+    <insert id=" insertTeacher" parameterType="int">
         INSERT INTO teacher values (null,#{name},#{password})
     </insert>
+
+    <resultMap id="teacher" type="teacher">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+    </resultMap>
+
 </mapper>

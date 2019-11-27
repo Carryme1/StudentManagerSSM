@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 public class TeacherServiceImp implements TeacherService {
     @Autowired
     TeacherDao teacherDao;
-    public String getPasswordByName(String name) {
-        return teacherDao.getPasswordByName(name);
+    public String getTeacher(String name) {
+        return teacherDao.getTeacher(name);
     }
 
     public void insertTeacher(Teacher teacher) {
