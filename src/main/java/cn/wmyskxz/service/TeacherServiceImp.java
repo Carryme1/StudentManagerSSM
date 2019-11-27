@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class TeacherServiceImp implements TeacherService {
     @Autowired
     TeacherDao teacherDao;
-    public String getTeacher(String name) {
+    public Teacher getTeacher(String name) {
         return teacherDao.getTeacher(name);
     }
 

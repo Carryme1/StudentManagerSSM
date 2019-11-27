@@ -1,5 +1,6 @@
 package cn.wmyskxz.controller;
 
+import cn.wmyskxz.entity.Teacher;
 import cn.wmyskxz.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,18 +18,16 @@ public class TeacherController {
     @Autowired
     TeacherService teacherService;
     @RequestMapping("/login")
-    public String login(HttpServletRequest request, HttpServletResponse response){
+    public String login(HttpServletRequest request,HttpServletResponse response) throws IOException {
         String name = request.getParameter("name");
-        if (name.equals(teacherService.getTeacher(name)))
-            return "redirect:listStudent";
-        else {
-            try {
-                response.sendError(0,"pwd error");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return "index";
+        String pwd = request.getParameter("password");
+        Teacher teacher = teacherService.getTeacher(name);
+        if(teacher==null){
+            return "login";
         }
+        if(teacher.getPassword().equals(pwd))
+            return "redirect:listStudent";
+        return "login";
     }
 
 

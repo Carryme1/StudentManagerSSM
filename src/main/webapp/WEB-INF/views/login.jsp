@@ -11,7 +11,7 @@
     <title>登陆</title>
 </head>
 <body>
-<form method="get" action="login" role="form">
+<form method="post" action="login" role="form">
     <table class="editTable" border="center">
         <tr>
             <td>姓名：</td>
